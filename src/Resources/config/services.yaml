@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+    
+    jalismrs_environment.environment_service:
+        arguments:
+            $env: '%kernel.environment%'
+        class: 'Jalismrs\Symfony\Bundle\JalismrsEnvironmentBundle\EnvironmentService'
+    
+    Jalismrs\Symfony\Bundle\JalismrsEnvironmentBundle\EnvironmentService: '@jalismrs_environment.environment_service'
