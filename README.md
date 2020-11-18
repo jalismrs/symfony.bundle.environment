@@ -10,6 +10,7 @@ coverage reports will be available in `var/coverage`
 
 ## Use
 
+### getEnv
 ```php
 use Jalismrs\Symfony\Bundle\JalismrsEnvironmentBundle\EnvironmentService;
 
@@ -17,13 +18,24 @@ class SomeClass {
     private EnvironmentService $environmentService;
 
     public function someCall(): void {
-        $this->apiThrottler->waitAndIncrease(
-            'useCaseKey', // string   $useCaseKey
-            'identifier', // string   $identifier
-            4,            // int|null $cap
-        );
+        $env = $this->environmentService->getEnv();
         
-        // api call HERE
+        // do something
+    }
+}
+```
+
+### isEnv
+```php
+use Jalismrs\Symfony\Bundle\JalismrsEnvironmentBundle\EnvironmentService;
+
+class SomeClass {
+    private EnvironmentService $environmentService;
+
+    public function someCall(): void {
+        $isEnvValue = $this->environmentService->isEnv('value');
+        
+        // do something
     }
 }
 ```
