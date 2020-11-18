@@ -3,9 +3,11 @@ services:
         autowire: true
         autoconfigure: true
     
+    # aliases
+    Jalismrs\Symfony\Bundle\JalismrsEnvironmentBundle\EnvironmentService: '@jalismrs_environment.environment_service'
+    
+    # services
     jalismrs_environment.environment_service:
         arguments:
             $env: '%kernel.environment%'
         class: 'Jalismrs\Symfony\Bundle\JalismrsEnvironmentBundle\EnvironmentService'
-    
-    Jalismrs\Symfony\Bundle\JalismrsEnvironmentBundle\EnvironmentService: '@jalismrs_environment.environment_service'
